@@ -100,32 +100,32 @@ public class frmAnSanPham extends javax.swing.JFrame {
 
     private void btnAnSanPhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnSanPhamActionPerformed
         String MaSanPham,  TrangThai ;
-        MaSanPham = doanql.DoAnQL.frmTC.GetMaSanPham();
+//        MaSanPham = doanql.DoAnQL.frmTC.GetMaSanPham();
 
         TrangThai = "0";
 
-        String cautruyvan = "update  SanPham set "
-        + "TrangThai=" + TrangThai + " where MaSanPham= " + MaSanPham;
-        System.out.println(cautruyvan);
+//        String cautruyvan = "update  SanPham set "
+//        + "TrangThai=" + TrangThai + " where MaSanPham= " + MaSanPham;
+//        System.out.println(cautruyvan);
         boolean kiemtra = true;
         if (kiemtra) {
-            DoAnQL.connection.ExcuteQueryUpdateDB(cautruyvan);
+//            DoAnQL.connection.ExcuteQueryUpdateDB(cautruyvan);
             System.out.println("Đã Sửa Thành Công Sản Phẩm");
         } else {
-            doanql.DoAnQL.frmTC.ThongBao("Không thể ", "Sửa Sản Phẩm", 2);
+//            doanql.DoAnQL.frmTC.ThongBao("Không thể ", "Sửa Sản Phẩm", 2);
         }
-        doanql.DoAnQL.frmTC.LayDuLieuSanPham("1");
+//        doanql.DoAnQL.frmTC.LayDuLieuSanPham("1");
         this.dispose();
     }//GEN-LAST:event_btnAnSanPhamActionPerformed
 
     private void btnXoaSanPhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaSanPhamActionPerformed
 
-        if(! doanql.DoAnQL.frmTC.GetMaSanPham().equals("")){
-            doanql.DoAnQL.frmTC.XoaSanPham();
-            doanql.DoAnQL.frmTC.ResSanPham();
-        }
-        else
-        doanql.DoAnQL.frmTC.ThongBao("bạn chưa nhập mã sản phẩm", "lỗi khi xóa",2);
+//        if(! doanql.DoAnQL.frmTC.GetMaSanPham().equals("")){
+//            doanql.DoAnQL.frmTC.XoaSanPham();
+//            doanql.DoAnQL.frmTC.ResSanPham();
+//        }
+//        else
+//        doanql.DoAnQL.frmTC.ThongBao("bạn chưa nhập mã sản phẩm", "lỗi khi xóa",2);
     }//GEN-LAST:event_btnXoaSanPhamActionPerformed
 
     /**
