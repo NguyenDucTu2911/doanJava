@@ -5,6 +5,7 @@
  */
 package frm;
 
+import doanql.DoAnQL;
 /**
  *
  * @author NITRO-5
@@ -27,21 +28,105 @@ public class frmAnSanPham extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        btnAnSanPham = new javax.swing.JButton();
+        btnXoaSanPham = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnAnSanPham.setText("Ẩn Sản phẩm");
+        btnAnSanPham.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnSanPhamActionPerformed(evt);
+            }
+        });
+
+        btnXoaSanPham.setText("Xóa Sản Phẩm");
+        btnXoaSanPham.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaSanPhamActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Lựa Chọn 1 trong 2");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(btnAnSanPham)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addComponent(btnXoaSanPham)
+                .addGap(40, 40, 40))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAnSanPham)
+                    .addComponent(btnXoaSanPham))
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAnSanPhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnSanPhamActionPerformed
+        String MaSanPham,  TrangThai ;
+        MaSanPham = doanql.DoAnQL.frmTC.GetMaSanPham();
+
+        TrangThai = "0";
+
+        String cautruyvan = "update  SanPham set "
+        + "TrangThai=" + TrangThai + " where MaSanPham= " + MaSanPham;
+        System.out.println(cautruyvan);
+        boolean kiemtra = true;
+        if (kiemtra) {
+            DoAnQL.connection.ExcuteQueryUpdateDB(cautruyvan);
+            System.out.println("Đã Sửa Thành Công Sản Phẩm");
+        } else {
+            doanql.DoAnQL.frmTC.ThongBao("Không thể ", "Sửa Sản Phẩm", 2);
+        }
+        doanql.DoAnQL.frmTC.LayDuLieuSanPham("1");
+        this.dispose();
+    }//GEN-LAST:event_btnAnSanPhamActionPerformed
+
+    private void btnXoaSanPhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaSanPhamActionPerformed
+
+        if(! doanql.DoAnQL.frmTC.GetMaSanPham().equals("")){
+            doanql.DoAnQL.frmTC.XoaSanPham();
+            doanql.DoAnQL.frmTC.ResSanPham();
+        }
+        else
+        doanql.DoAnQL.frmTC.ThongBao("bạn chưa nhập mã sản phẩm", "lỗi khi xóa",2);
+    }//GEN-LAST:event_btnXoaSanPhamActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +164,9 @@ public class frmAnSanPham extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAnSanPham;
+    private javax.swing.JButton btnXoaSanPham;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
