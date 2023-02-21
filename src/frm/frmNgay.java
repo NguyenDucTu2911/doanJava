@@ -9,6 +9,12 @@ package frm;
  *
  * @author NITRO-5
  */
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
+
 public class frmNgay extends javax.swing.JFrame {
 
     /**
@@ -17,6 +23,16 @@ public class frmNgay extends javax.swing.JFrame {
     public frmNgay() {
         initComponents();
     }
+    
+    Calendar cal = Calendar.getInstance();
+    int tamday=-1;
+    int day = cal.get(Calendar.DAY_OF_MONTH);
+    int month = cal.get(Calendar.MONTH) + 1;
+    int year = cal.get(Calendar.YEAR);
+    boolean d, m, y;
+    Date dt = cal.getTime();
+// Dinh dang lai hien thi thong tin ngay gio ra man hinh
+    SimpleDateFormat fm = new SimpleDateFormat("dd-MM-yyyy");
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,21 +43,235 @@ public class frmNgay extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabeThang = new javax.swing.JLabel();
+        cbbNam = new javax.swing.JComboBox<String>();
+        jLabelNam = new javax.swing.JLabel();
+        cbbThang = new javax.swing.JComboBox<String>();
+        cbbNgay = new javax.swing.JComboBox<String>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabelNgay = new javax.swing.JLabel();
+        btnOke_NgayLap = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabeThang.setText("Tháng");
+
+        cbbNam.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbNamItemStateChanged(evt);
+            }
+        });
+
+        jLabelNam.setText("Năm");
+
+        cbbThang.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbThangItemStateChanged(evt);
+            }
+        });
+        cbbThang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbThangActionPerformed(evt);
+            }
+        });
+
+        cbbNgay.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbNgayItemStateChanged(evt);
+            }
+        });
+        cbbNgay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbNgayActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Ngày lập Phiếu Mua");
+
+        jLabelNgay.setText("Ngày ");
+
+        btnOke_NgayLap.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnOke_NgayLap.setText("OKE");
+        btnOke_NgayLap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOke_NgayLapActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelNgay)
+                                    .addComponent(jLabeThang)
+                                    .addComponent(jLabelNam))
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbbNam, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbbThang, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbbNgay, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnOke_NgayLap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(jLabel1)))
+                .addGap(123, 123, 123))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbNgay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNgay))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbThang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabeThang))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbNam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNam))
+                .addGap(18, 18, 18)
+                .addComponent(btnOke_NgayLap, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public String strNgaySinh;
+    private void cbbNamItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbNamItemStateChanged
+        try {
+            if (Integer.valueOf(cbbNgay.getSelectedItem().toString())!=day &&
+                Integer.valueOf(cbbThang.getSelectedItem().toString())!=month &&
+                Integer.valueOf(cbbNam.getSelectedItem().toString())!=year){
+                strNgaySinh = cbbNam.getSelectedItem().toString() + "-" + cbbThang.getSelectedItem().toString() + "-" + cbbNgay.getSelectedItem().toString();
+                doanql.DoAnQL.frmTC.SetNgayLap(strNgaySinh);
+
+                this.dispose();
+            }
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_cbbNamItemStateChanged
+
+    int tam =0;
+    private void cbbThangItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbThangItemStateChanged
+        String thang = cbbThang.getSelectedItem().toString();
+        DefaultComboBoxModel cbbmodel = new DefaultComboBoxModel();
+        if(tamday>0)
+
+        m = true;
+        String thanght;
+        if (tam == 0) {
+            thanght = "0";
+        } else {
+            thanght = cbbNgay.getSelectedItem().toString();
+        }
+        tam = 1;
+
+        if (thang.equals("4") || thang.equals("6") || thang.equals("9") || thang.equals("11")) {
+            cbbNgay.setModel(cbbmodel);
+            for (int i = 1; i < 31; i++) {
+                cbbNgay.addItem(String.valueOf(i));
+            }
+            if (Integer.valueOf(thanght) < 31) {
+                cbbNgay.setSelectedItem(thanght);
+            }
+        } else if (thang.equals("1") || thang.equals("3") || thang.equals("5")
+            || thang.equals("7") || thang.equals("8") || thang.equals("12") || thang.equals("10")) {
+
+            cbbNgay.setModel(cbbmodel);
+            for (int i = 1; i < 32; i++) {
+                cbbNgay.addItem(String.valueOf(i));
+            }
+            if (Integer.valueOf(thanght) < 32) {
+                cbbNgay.setSelectedItem(thanght);
+            }
+        } else {
+            cbbNgay.setModel(cbbmodel);
+            for (int i = 1; i < 29; i++) {
+                cbbNgay.addItem(String.valueOf(i));
+            }
+            if (Integer.valueOf(thanght) < 29) {
+                cbbNgay.setSelectedItem(thanght);
+            }
+        }
+        try {
+            if (Integer.valueOf(cbbNgay.getSelectedItem().toString())!=day &&
+                Integer.valueOf(cbbThang.getSelectedItem().toString())!=month &&
+                Integer.valueOf(cbbNam.getSelectedItem().toString())!=year){
+                strNgaySinh = cbbNam.getSelectedItem().toString() + "-" + cbbThang.getSelectedItem().toString() + "-" + cbbNgay.getSelectedItem().toString();
+                doanql.DoAnQL.frmTC.SetNgayLap(strNgaySinh);
+
+                this.dispose();
+            }
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_cbbThangItemStateChanged
+
+    private void cbbThangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbThangActionPerformed
+
+    }//GEN-LAST:event_cbbThangActionPerformed
+
+    private void cbbNgayItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbNgayItemStateChanged
+
+        try {
+            if (Integer.valueOf(cbbNgay.getSelectedItem().toString())!=day &&
+                Integer.valueOf(cbbThang.getSelectedItem().toString())!=month &&
+                Integer.valueOf(cbbNam.getSelectedItem().toString())!=year){
+                strNgaySinh = cbbNam.getSelectedItem().toString() + "-" + cbbThang.getSelectedItem().toString() + "-" + cbbNgay.getSelectedItem().toString();
+                doanql.DoAnQL.frmTC.SetNgayLap(strNgaySinh);
+
+                this.dispose();
+            }
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_cbbNgayItemStateChanged
+
+    private void cbbNgayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbNgayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbNgayActionPerformed
+
+    private void btnOke_NgayLapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOke_NgayLapActionPerformed
+        strNgaySinh = cbbNam.getSelectedItem().toString() + "-" + cbbThang.getSelectedItem().toString() + "-" + cbbNgay.getSelectedItem().toString();
+        doanql.DoAnQL.frmTC.SetNgayLap(strNgaySinh);
+
+        this.dispose();
+
+    }//GEN-LAST:event_btnOke_NgayLapActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +309,14 @@ public class frmNgay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnOke_NgayLap;
+    private javax.swing.JComboBox<String> cbbNam;
+    private javax.swing.JComboBox<String> cbbNgay;
+    private javax.swing.JComboBox<String> cbbThang;
+    private javax.swing.JLabel jLabeThang;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelNam;
+    private javax.swing.JLabel jLabelNgay;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
