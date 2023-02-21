@@ -199,6 +199,7 @@ public class frmDangNhap extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     public static int quyen=0;
     public static String ten="",user="";
